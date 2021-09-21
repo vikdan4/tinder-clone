@@ -9,7 +9,8 @@ class AccountScreen extends React.Component {
             <View style={styles.container}>
                 <Text>redact Account</Text>
                 <Button
-                    title="log out"
+                    style={{ backgroundColor: "#f6c" }}
+                    title="Here you can LOG OUT!"
                     onPress={() => this.props.setLoggedStatus(false)}
                 />
             </View>
