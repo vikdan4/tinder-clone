@@ -8,11 +8,13 @@ class AccountScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>redact Account</Text>
-                <Button
-                    style={{ backgroundColor: "#f6c" }}
-                    title="Here you can LOG OUT!"
-                    onPress={() => this.props.setLoggedStatus(false)}
-                />
+                <View style={{ backgroundColor: "#f6c", borderRadius: 10 }}>
+                    <Button
+                        title="Here you can LOG OUT!"
+                        color="white"
+                        onPress={() => this.props.setLoggedStatus(false)}
+                    />
+                </View>
             </View>
         );
     }
