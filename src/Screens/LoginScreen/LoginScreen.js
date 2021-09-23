@@ -40,6 +40,7 @@ class LoginScreen extends React.Component {
                         placeholder="login, email, phone number"
                     />
                     <TextInput
+                        secureTextEntry={true}
                         onChangeText={(text) =>
                             this.setState({ password: text })
                         }
