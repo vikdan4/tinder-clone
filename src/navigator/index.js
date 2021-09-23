@@ -17,7 +17,7 @@ class Navigator extends React.Component {
         return (
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{ headerShown: false }}>
-                    {this.props.isLoggedIn ? (
+                    {this.props.token ? (
                         <>
                             <Stack.Screen
                                 name="Main"
@@ -42,5 +42,5 @@ class Navigator extends React.Component {
 }
 
 export default connect((store) => ({
-    isLoggedIn: authSelectors.isLoggedIn(store),
+    token: authSelectors.token(store),
 }))(Navigator);

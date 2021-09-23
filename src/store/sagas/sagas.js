@@ -1,6 +1,7 @@
 import { call, put, select, takeEvery } from "@redux-saga/core/effects";
 import { apiService } from "../../data/service";
 import {
+    authActions,
     matchesActions,
     pagingActions,
     profilesActions,
@@ -8,6 +9,7 @@ import {
 import {
     GET_MATCHES,
     GET_PROFILES,
+    GET_TOKEN,
     SET_REACTION,
 } from "../actions/actionTypes";
 import { profilesSelectors } from "../selectors/profilesSelector";
@@ -45,4 +47,15 @@ function* getMatchesSaga(action) {
 
 export function* watchGetMatchesSaga() {
     yield takeEvery(GET_MATCHES, getMatchesSaga);
+}
+
+function* getTokenSaga(action) {
+    //console.log(action.payload);
+    const token = yield call(apiService.getToken, action.payload);
+    console.log(token);
+    yield put(authActions.saveToken(token));
+}
+
+export function* watchGetTokenSaga() {
+    yield takeEvery(GET_TOKEN, getTokenSaga);
 }

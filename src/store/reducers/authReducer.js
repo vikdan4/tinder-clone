@@ -1,14 +1,19 @@
-import { SET_LOGGED_IN } from "../actions/actionTypes";
+import { CLEAR_TOKEN, SAVE_TOKEN } from "../actions/actionTypes";
 
 const initialState = {
-    isLoggedIn: false,
+    token: undefined,
 };
 
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_LOGGED_IN: {
+        case SAVE_TOKEN: {
             return {
-                isLoggedIn: action.payload,
+                token: action.payload,
+            };
+        }
+        case CLEAR_TOKEN: {
+            return {
+                token: undefined,
             };
         }
         default:

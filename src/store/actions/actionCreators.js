@@ -1,5 +1,4 @@
 import {
-    SET_LOGGED_IN,
     GET_PROFILES,
     SET_REACTION,
     SAVE_PROFILES,
@@ -7,16 +6,32 @@ import {
     GET_MATCHES,
     SAVE_MATCHES,
     SLICE_PROFILES,
+    GET_TOKEN,
+    SAVE_TOKEN,
+    CLEAR_TOKEN,
 } from "./actionTypes";
 
-const setLoggedStatus = (status) => {
+const getToken = (authData) => {
     return {
-        type: SET_LOGGED_IN,
-        payload: status,
+        type: GET_TOKEN,
+        payload: authData,
+    };
+};
+const saveToken = (token) => {
+    return {
+        type: SAVE_TOKEN,
+        payload: token,
+    };
+};
+const clearToken = () => {
+    return {
+        type: CLEAR_TOKEN,
     };
 };
 export const authActions = {
-    setLoggedStatus,
+    getToken,
+    saveToken,
+    clearToken,
 };
 
 const getProfiles = () => {

@@ -12,7 +12,7 @@ class AccountScreen extends React.Component {
                     <Button
                         title="Here you can LOG OUT!"
                         color="white"
-                        onPress={() => this.props.setLoggedStatus(false)}
+                        onPress={() => this.props.clearToken()}
                     />
                 </View>
             </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatch = {
-    setLoggedStatus: authActions.setLoggedStatus,
+    clearToken: authActions.clearToken,
 };
 
 export default connect(null, mapDispatch)(AccountScreen);

@@ -1,4 +1,6 @@
-export const SET_LOGGED_IN = "SET_LOGGED_IN";
+export const GET_TOKEN = "GET_TOKEN";
+export const SAVE_TOKEN = "SAVE_TOKEN";
+export const CLEAR_TOKEN = "CLEAR_TOKEN";
 export const GET_PROFILES = "GET_PROFILES";
 export const SAVE_PROFILES = "SAVE_PROFILES";
 export const SET_REACTION = "SET_REACTION";

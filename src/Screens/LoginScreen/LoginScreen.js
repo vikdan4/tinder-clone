@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Dimensions, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { connect } from "react-redux";
 import {
     actionCreators,
@@ -32,7 +32,12 @@ class LoginScreen extends React.Component {
                     <TextInput style={styles.inputs} placeholder="password" />
 
                     <TouchableOpacity
-                        onPress={() => this.props.setLoggedStatus(true)}
+                        onPress={() =>
+                            this.props.getToken({
+                                login: "vikdan",
+                                password: "vikdan123",
+                            })
+                        }
                         style={styles.touchableArea}
                     >
                         <View style={styles.button}>
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatch = {
-    setLoggedStatus: authActions.setLoggedStatus,
+    getToken: authActions.getToken,
 };
 
 export default connect(null, mapDispatch)(LoginScreen);

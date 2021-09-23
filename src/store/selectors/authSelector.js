@@ -1,5 +1,5 @@
 export const authSelectors = {
-    isLoggedIn: ({ auth }) => auth.isLoggedIn,
+    token: ({ auth }) => auth.token,
 };
 
 // const state = {
