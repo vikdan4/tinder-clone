@@ -50,7 +50,7 @@ export function* watchGetMatchesSaga() {
 }
 
 function* getTokenSaga(action) {
-    //console.log(action.payload);
+    console.log(action.payload);
     const token = yield call(apiService.getToken, action.payload);
     console.log(token);
     yield put(authActions.saveToken(token));

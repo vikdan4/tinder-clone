@@ -7,8 +7,17 @@ import {
 } from "../../store/actions/actionCreators";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { Value } from "react-native-reanimated";
 
 class LoginScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            login: "",
+            password: "",
+        };
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -26,18 +35,20 @@ class LoginScreen extends React.Component {
 
                 <View style={styles.login}>
                     <TextInput
+                        onChangeText={(text) => this.setState({ login: text })}
                         style={styles.inputs}
                         placeholder="login, email, phone number"
                     />
-                    <TextInput style={styles.inputs} placeholder="password" />
+                    <TextInput
+                        onChangeText={(text) =>
+                            this.setState({ password: text })
+                        }
+                        style={styles.inputs}
+                        placeholder="password"
+                    />
 
                     <TouchableOpacity
-                        onPress={() =>
-                            this.props.getToken({
-                                login: "vikdan",
-                                password: "vikdan123",
-                            })
-                        }
+                        onPress={() => this.props.getToken(this.state)}
                         style={styles.touchableArea}
                     >
                         <View style={styles.button}>
