@@ -5,12 +5,13 @@ import Navigator from "./src/navigator";
 import { SafeAreaView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { PersistGate } from "redux-persist/integration/react";
+import { LoadingScreen } from "./src/Screens/LoginScreen/LoadingScreen";
 
 class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <PersistGate persistor={persistor} loading={null}>
+                <PersistGate persistor={persistor} loading={LoadingScreen}>
                     <SafeAreaView style={{ flex: 1 }}>
                         <StatusBar />
                         <Navigator />
