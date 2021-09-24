@@ -139,4 +139,11 @@ export const allProfiles = [
         age: "23",
         bio: "Swimming\nlistening to music\nreading\ntravel\nmovies\nastrology\nathlete\nspirituality\ncooking",
     },
+    {
+        id: 77,
+        imgUrl: "http://mail.manyaninda.com/images/basinda-biz/1576065218_TGX_2.JPG",
+        name: "Vikdan",
+        age: "20",
+        bio: "listening to music\nreading\nmovies\nathlete\nspirituality",
+    },
 ];
