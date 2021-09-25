@@ -6,7 +6,6 @@ import {
     View,
     ScrollView,
     Dimensions,
-    KeyboardAvoidingView,
 } from "react-native";
 import { connect } from "react-redux";
 import { authActions } from "../../store/actions/actionCreators";
