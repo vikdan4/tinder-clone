@@ -1,13 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { connect } from "react-redux";
-import {
-    actionCreators,
-    authActions,
-} from "../../store/actions/actionCreators";
+import { authActions } from "../../store/actions/actionCreators";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import { Value } from "react-native-reanimated";
 
 class LoginScreen extends React.Component {
     constructor(props) {
@@ -33,39 +29,51 @@ class LoginScreen extends React.Component {
                     {"Tinder-\t\t\n\t\t\tclone"}
                 </Text>
 
-                <View style={styles.login}>
-                    <TextInput
-                        onChangeText={(text) => this.setState({ login: text })}
-                        style={styles.inputs}
-                        placeholder="login, email, phone number"
-                    />
-                    <TextInput
-                        onChangeText={(text) =>
-                            this.setState({ password: text })
-                        }
-                        style={styles.inputs}
-                        placeholder="password"
-                    />
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    //style={{ flex: 1 }}
+                >
+                    <View style={styles.login}>
+                        <TextInput
+                            onChangeText={(text) =>
+                                this.setState({ login: text })
+                            }
+                            style={styles.inputs}
+                            placeholder="login, email, phone number"
+                        />
+                        <TextInput
+                            secureTextEntry={true}
+                            onChangeText={(text) =>
+                                this.setState({ password: text })
+                            }
+                            style={styles.inputs}
+                            placeholder="password"
+                        />
 
-                    <TouchableOpacity
-                        onPress={() => this.props.getToken(this.state)}
-                        style={styles.touchableArea}
-                    >
-                        <View style={styles.button}>
-                            <Text
-                                style={{
-                                    fontSize: 36,
-                                    fontWeight: "bold",
-                                    fontStyle: "italic",
-                                    color: "#303",
-                                }}
-                            >
-                                {"Login"}
-                            </Text>
-                            <Ionicons name="log-in" size={48} color="white" />
-                        </View>
-                    </TouchableOpacity>
-                </View>
+                        <TouchableOpacity
+                            onPress={() => this.props.getToken(this.state)}
+                            style={styles.touchableArea}
+                        >
+                            <View style={styles.button}>
+                                <Text
+                                    style={{
+                                        fontSize: 36,
+                                        fontWeight: "bold",
+                                        fontStyle: "italic",
+                                        color: "#303",
+                                    }}
+                                >
+                                    {"Login"}
+                                </Text>
+                                <Ionicons
+                                    name="log-in"
+                                    size={48}
+                                    color="white"
+                                />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </KeyboardAvoidingView>
             </View>
         );
     }

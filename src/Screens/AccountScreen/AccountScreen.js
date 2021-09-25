@@ -8,10 +8,16 @@ import {
     Dimensions,
 } from "react-native";
 import { connect } from "react-redux";
+<<<<<<< HEAD
 import { authActions, userActions } from "../../store/actions/actionCreators";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { userSelector } from "../../store/selectors/userSelector";
+=======
+import { authActions } from "../../store/actions/actionCreators";
+import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import Ionicons from "@expo/vector-icons/Ionicons";
+>>>>>>> 8abcdfe5cebdb53d44ea32d5ab77567d8399f9d4
 
 class AccountScreen extends React.Component {
     myId = 77;
@@ -53,6 +59,7 @@ class AccountScreen extends React.Component {
                             style={styles.image}
                         />
                     </TouchableOpacity>
+<<<<<<< HEAD
                     <TextInput
                         onChangeText={(text) =>
                             this.setState({ password: text })
@@ -73,6 +80,14 @@ class AccountScreen extends React.Component {
                         }
                         style={styles.inputs}
                         placeholder={user.bio}
+=======
+                    <TextInput style={styles.inputs} placeholder={user.name} />
+                    <TextInput style={styles.inputs} placeholder={user.age} />
+                    <TextInput
+                        style={{ ...styles.inputs, height: 85 }}
+                        placeholder={user.bio}
+                        multiline={true}
+>>>>>>> 8abcdfe5cebdb53d44ea32d5ab77567d8399f9d4
                     />
                     <TouchableOpacity style={styles.touchableSubmit}>
                         <View style={styles.buttonSubmit}>
